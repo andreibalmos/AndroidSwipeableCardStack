@@ -5,22 +5,22 @@ import android.animation.Animator.AnimatorListener;
 
 public abstract class AnimatorListenerAdapter implements AnimatorListener {
     @Override
-    public void onAnimationCancel(Animator arg0) {
+    public void onAnimationCancel(Animator animator) {
 
     }
 
     @Override
-    public void onAnimationEnd(Animator arg0) {
+    public void onAnimationEnd(Animator animator) {
 
     }
 
     @Override
-    public void onAnimationRepeat(Animator arg0) {
+    public void onAnimationRepeat(Animator animator) {
 
     }
 
     @Override
-    public void onAnimationStart(Animator arg0) {
+    public void onAnimationStart(Animator animator) {
 
     }
 

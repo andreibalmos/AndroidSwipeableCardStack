@@ -11,8 +11,8 @@ public class CardUtils {
     final static int DIRECTION_BOTTOM_LEFT = 2;
     final static int DIRECTION_BOTTOM_RIGHT = 3;
 
-    public static void scale(View v, int pixel){
-        RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams)v.getLayoutParams();
+    public static void scale(View v, int pixel) {
+        RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) v.getLayoutParams();
         params.leftMargin -= pixel;
         params.rightMargin -= pixel;
         params.topMargin -= pixel;
@@ -20,8 +20,8 @@ public class CardUtils {
         v.setLayoutParams(params);
     }
 
-    public static LayoutParams getMoveParams(View v, int upDown,int leftRight){
-        RelativeLayout.LayoutParams original = (RelativeLayout.LayoutParams)v.getLayoutParams();
+    public static LayoutParams getMoveParams(View v, int upDown, int leftRight) {
+        RelativeLayout.LayoutParams original = (RelativeLayout.LayoutParams) v.getLayoutParams();
         //RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(original);
         RelativeLayout.LayoutParams params = cloneParams(original);
         params.leftMargin += leftRight;
@@ -31,8 +31,8 @@ public class CardUtils {
         return params;
     }
 
-    public static void move(View v, int upDown,int leftRight){
-        RelativeLayout.LayoutParams params = getMoveParams(v,upDown,leftRight);
+    public static void move(View v, int upDown, int leftRight) {
+        RelativeLayout.LayoutParams params = getMoveParams(v, upDown, leftRight);
         v.setLayoutParams(params);
     }
 
@@ -61,15 +61,15 @@ public class CardUtils {
     }
 
     //a copy method for RelativeLayout.LayoutParams for backward compartibility
-    public static RelativeLayout.LayoutParams cloneParams(RelativeLayout.LayoutParams params){
-        RelativeLayout.LayoutParams copy = new RelativeLayout.LayoutParams(params.width,params.height);
+    public static RelativeLayout.LayoutParams cloneParams(RelativeLayout.LayoutParams params) {
+        RelativeLayout.LayoutParams copy = new RelativeLayout.LayoutParams(params.width, params.height);
         copy.leftMargin = params.leftMargin;
         copy.topMargin = params.topMargin;
         copy.rightMargin = params.rightMargin;
         copy.bottomMargin = params.bottomMargin;
         int[] rules = params.getRules();
-        for (int i = 0 ; i< rules.length; i++ ){
-            copy.addRule(i,rules[i]);
+        for (int i = 0; i < rules.length; i++) {
+            copy.addRule(i, rules[i]);
         }
         //copy.setMarginStart(params.getMarginStart());
         //copy.setMarginEnd(params.getMarginEnd());
@@ -79,20 +79,20 @@ public class CardUtils {
 
     public static float distance(float x1, float y1, float x2, float y2) {
 
-        return (float) Math.sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
+        return (float) Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
     }
 
     public static int direction(float x1, float y1, float x2, float y2) {
-        if(x2>x1){//RIGHT
-            if(y2>y1){//BOTTOM
+        if (x2 > x1) {//RIGHT
+            if (y2 > y1) {//BOTTOM
                 return DIRECTION_BOTTOM_RIGHT;
-            }else{//TOP
+            } else {//TOP
                 return DIRECTION_TOP_RIGHT;
             }
-        }else{//LEFT
-            if(y2>y1){//BOTTOM
+        } else {//LEFT
+            if (y2 > y1) {//BOTTOM
                 return DIRECTION_BOTTOM_LEFT;
-            }else{//TOP
+            } else {//TOP
                 return DIRECTION_TOP_LEFT;
             }
         }
